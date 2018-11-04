@@ -21,7 +21,7 @@ This code is copyright 2013 Andrew Walker
 See the end of the source file for the license of use.
 """
 import requests
-__version__ = '0.1'
+__version__ = '0.2.0'
 __all__ = ['query']
 
 
@@ -48,10 +48,10 @@ class IntegerSequence(object):
 
             if data_type == 'I':
                 self.id = sequence_name
-            elif data_type == 'S':
+            elif data_type in ['S', 'T', 'U']:
                 if data[-1] == ',':
                     data = data[:-1]
-                self.sequence = [int(num) for num in data.split(',')]
+                self.sequence.extend([int(num) for num in data.split(',')])
             elif data_type == 'N':
                 self.name = data
             elif data_type == 'C':

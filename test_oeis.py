@@ -52,9 +52,9 @@ class TestOEIS(unittest.TestCase):
     def test_sequences(self):
         seqs = oeis.query(self.seq, self.n)
         self.assertEquals(seqs[0].sequence[0], 1)
-        self.assertEquals(seqs[0].sequence[-1], 26)
+        self.assertEquals(seqs[0].sequence[-1], 77)
         self.assertEquals(seqs[3].sequence[0], 1)
-        self.assertEquals(seqs[3].sequence[-1], 53)
+        self.assertEquals(seqs[3].sequence[-1], 227)
 
 
 # Copyright (c) 2012 Andrew Walker <walker.ab@gmail.com>
