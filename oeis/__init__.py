@@ -102,6 +102,18 @@ def query(sequence, n=1):
     return [IntegerSequence(block.split('\n')) for block in blocks]
 
 
+def extend(sequence):
+    """Extend the given sequence according to the first match on OEIS"""
+    seqs = query(sequence, 1)
+    if len(seqs) == 0:
+        raise OEISError('no match')
+    seq = seqs[0].sequence
+    for i in range(len(seq)):
+        l = min(len(seq) - i, len(sequence))
+        if seq[i:i+l] == sequence[:l]:
+            return seq[i:]
+
+
 # Copyright (c) 2012 Andrew Walker <walker.ab@gmail.com>
 # Copyright (c) 2018 Sean Eberhard <eberhard.math@gmail.com>
 #

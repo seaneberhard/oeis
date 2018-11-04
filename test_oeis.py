@@ -56,6 +56,10 @@ class TestOEIS(unittest.TestCase):
         self.assertEquals(seqs[3].sequence[0], 1)
         self.assertEquals(seqs[3].sequence[-1], 227)
 
+    def test_extend(self):
+        seq = oeis.extend([2, 3, 5, 8, 13])
+        self.assertEqual(seq[10], 233)
+
 
 # Copyright (c) 2012 Andrew Walker <walker.ab@gmail.com>
 # Copyright (c) 2018 Sean Eberhard <eberhard.math@gmail.com>
