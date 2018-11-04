@@ -13,6 +13,7 @@ import tempfile
 
 orig_raw = oeis.raw_query
 
+
 def _cached_query(sequence, n=1):
     cache_hash = hash((tuple(sequence), n))
     cache_file = 'oeis_cache_%s' % str(cache_hash)
@@ -26,7 +27,9 @@ def _cached_query(sequence, n=1):
             fh.write(content)
         return content
 
+
 oeis.raw_query = _cached_query
+
 
 class TestOEIS(unittest.TestCase):
     def setUp(self):
@@ -44,7 +47,7 @@ class TestOEIS(unittest.TestCase):
         self.assertEquals(seqs[1].id, 'A007953')
         self.assertEquals(seqs[2].id, 'A001477')
         self.assertEquals(seqs[3].id, 'A000961')
-        self.assertEquals(seqs[4].id, 'A004086')
+        self.assertEquals(seqs[4].id, 'A269303')
 
     def test_sequences(self):
         seqs = oeis.query(self.seq, self.n)
@@ -55,6 +58,7 @@ class TestOEIS(unittest.TestCase):
 
 
 # Copyright (c) 2012 Andrew Walker <walker.ab@gmail.com>
+# Copyright (c) 2018 Sean Eberhard <eberhard.math@gmail.com>
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal

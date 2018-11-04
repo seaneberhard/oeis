@@ -75,7 +75,7 @@ def raw_query(sequence, n=1):
     response = requests.get('http://oeis.org/search', params=payload)
     if response.status_code != 200:
         raise OEISError('Invalid HTTP response from the OEIS')
-    return response.content
+    return response.content.decode('utf-8')
 
 
 def split_blocks(content):
@@ -103,6 +103,7 @@ def query(sequence, n=1):
 
 
 # Copyright (c) 2012 Andrew Walker <walker.ab@gmail.com>
+# Copyright (c) 2018 Sean Eberhard <eberhard.math@gmail.com>
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
